@@ -87,12 +87,10 @@ Theo từng lớp:
 Ảnh/vật thể cụ thể: `drive_059` (ảnh eval, ảnh prediction trong `visuals/`). Model dự đoán chủ yếu `car` với độ tin cậy 0.93, 0.90, 0.87, 0.83 và 0.72. Vật thể điển hình: chiếc xe tối ở giữa ảnh, gần camera, bị nhòe do chuyển động, được dự đoán là `car` với độ tin cậy 0.72, thấp hơn các xe nhỏ rõ nét hơn ở xa; box ôm sát thân xe. Ở góc trên bên trái, giữa cụm xe nhỏ ở xa, có một box dự đoán `truck` với độ tin cậy chỉ 0.52, thấp nhất ảnh. 
 Trả lời bốn câu hỏi cuối notebook:
 
-1. **Lớp recall thấp nhất:** `van` (R ≈ 0.167, 12 instance), kế đến `truck` (R = 0.2, 5 instance). Ảnh minh họa:
-2. <img width="640" height="640" alt="drive_059" src="https://github.com/user-attachments/assets/e434683e-028d-4485-94f8-a7459f231732" />
-
-3. **mAP50 cao nhưng mAP50–95 thấp:** cần kiểm tra độ sát của box (cạnh box lệch, lỏng hoặc cắt vào vật thể) ở các ngưỡng IoU cao. Ở lần chạy này `car` có mAP50 0.788 nhưng mAP50–95 0.526. 
-4. **Lỗi class liên quan guideline:** nhóm `truck`/`van`/`bus`, vì ranh giới minibus (`bus`) và van chở người (`van`) trong guideline dễ chồng lấn. Dữ kiện: các lớp này chỉ có 5, 12 và 2 instance trong eval trong khi `car` có 94/113; recall `van` 0.167 và `truck` 0.2. Với số instance ít, chỉ số rất dao động nên chưa đủ để kết luận lỗi do nhãn.
-5. **Không train bằng 10 ảnh eval** để tập đánh giá tách khỏi tập huấn luyện, nếu không số đo bị thổi phồng. Trong notebook, 10 ảnh eval cũng làm validation để chọn `best.pt`, nên không phải test set độc lập.
+1. **Lớp recall thấp nhất:** `van` (R ≈ 0.167, 12 instance), kế đến `truck` (R = 0.2, 5 instance). Ảnh minh họa: <img width="640" height="640" alt="drive_059" src="https://github.com/user-attachments/assets/e434683e-028d-4485-94f8-a7459f231732" />
+2. **mAP50 cao nhưng mAP50–95 thấp:** cần kiểm tra độ sát của box (cạnh box lệch, lỏng hoặc cắt vào vật thể) ở các ngưỡng IoU cao. Ở lần chạy này `car` có mAP50 0.788 nhưng mAP50–95 0.526. 
+3. **Lỗi class liên quan guideline:** nhóm `truck`/`van`/`bus`, vì ranh giới minibus (`bus`) và van chở người (`van`) trong guideline dễ chồng lấn. Dữ kiện: các lớp này chỉ có 5, 12 và 2 instance trong eval trong khi `car` có 94/113; recall `van` 0.167 và `truck` 0.2. Với số instance ít, chỉ số rất dao động nên chưa đủ để kết luận lỗi do nhãn.
+4. **Không train bằng 10 ảnh eval** để tập đánh giá tách khỏi tập huấn luyện, nếu không số đo bị thổi phồng. Trong notebook, 10 ảnh eval cũng làm validation để chọn `best.pt`, nên không phải test set độc lập.
 
 ## 6. Khó khăn và cách xử lý
 
