@@ -59,8 +59,8 @@ Kết quả: `outputs/annotation_evaluation.json` trong repo (IoU match 0.50, t�
 ## 5. Kết quả YOLO
 
 - Runtime: Google Colab, GPU Tesla T4 (CUDA:0, 14913 MiB); Python 3.13.16, Ultralytics 8.4.208, torch 2.14.1+cu130.
-- Tham số thay đổi so với notebook: [ĐIỀN, hoặc ghi "không đổi"]. Log cho thấy train 50 epoch trong 0.024 giờ.
-- Best checkpoint: `[link](https://drive.google.com/file/d/1WsG1i3PLQZpiOhxakU0bnYvmq317z_UG/view?usp=drive_link)`.
+- Tham số thay đổi so với notebook: Không đổi. Log cho thấy train 50 epoch trong 0.024 giờ.
+- Best checkpoint: [assets/yolo26_runs/vehicle_annotation/weights/best.pt](assets/yolo26_runs/vehicle_annotation/weights/best.pt).
 - Split giữ nguyên: 50 ảnh train, 10 ảnh eval (113 instance), không dùng eval để train.
 - Số liệu lấy từ log phiên Colab ngày 10/11. Lần train này chạy khi F1 ở mục 4 chưa đạt ngưỡng.
 
